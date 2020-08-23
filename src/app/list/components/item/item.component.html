@@ -1,0 +1,115 @@
+<!-- <div *ngIf="item.isChecked; else unChecked"> -->
+<div *ngIf="!item.isChecked; else checked">
+  <div
+    class="content d-flex justify-content-between align-items-center overflow-auto"
+  >
+    <button class="btn ml-0" (click)="onToggle()">
+      <i-bs
+        name="circle"
+        class="text-black-50"
+        height="1.5rem"
+        width="1.5rem"
+      ></i-bs>
+    </button>
+    <a
+      href="#"
+      class="btn btn-block active"
+      role="button"
+      aria-pressed="true"
+      (click)="openVerticallyCentered(content)"
+    >
+      <span class="ml-2 h5 flex-grow-1">{{ item.title }}</span>
+    </a>
+
+    <button class="btn" (click)="onClick()">
+      <i-bs
+        name="trash-fill"
+        class="text-black-50"
+        height="1.5rem"
+        width="1.5rem"
+      >
+      </i-bs>
+    </button>
+  </div>
+</div>
+
+<ng-template #checked>
+  <div
+    class="content d-flex justify-content-between align-items-center overflow-auto"
+  >
+    <button class="btn ml-0" (click)="onToggle()">
+      <i-bs
+        name="check-circle"
+        class="text-black-50"
+        height="1.5rem"
+        width="1.5rem"
+      ></i-bs>
+    </button>
+    <a
+      href="#"
+      class="btn btn-block active"
+      role="button"
+      aria-pressed="true"
+      (click)="openVerticallyCentered(content)"
+    >
+      <span class="ml-2 h5 flex-grow-1">{{ item.title }}</span>
+    </a>
+
+    <button class="btn" (click)="onClick()">
+      <i-bs
+        name="trash-fill"
+        class="text-black-50"
+        height="1.5rem"
+        width="1.5rem"
+      >
+      </i-bs>
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #content let-modal>
+  <div class="exam">
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.close()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()" class="form">
+      <div class="shadow-lg">
+        <div class="wrapper">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control form-control-md"
+              [(ngModel)]="item.title"
+              name="title"
+            />
+          </div>
+        </div>
+
+        <div class="wrapper">
+          <div class="input-group">
+            <textarea
+              class="form-control form-control-md"
+              [(ngModel)]="item.description"
+              name="description"
+              rows="4"
+            ></textarea>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="input-group">
+            <button class="btn" type="submit" value="Submit">
+              save
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

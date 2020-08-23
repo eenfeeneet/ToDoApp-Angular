@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-12 mx-auto">
+    <form (ngSubmit)="onSubmit()" class="form">
+      <div
+        class="content p-3 d-flex align-items-center shadow-lg justify-content-between"
+      >
+        <div class="wrapper flex-grow-1">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder=" Add an item"
+              [(ngModel)]="newItem.title"
+              name="title"
+            />
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="input-group">
+            <button class="btn" type="submit" value="Submit">
+              <i-bs
+                name="plus-circle"
+                class="text-black-50"
+                height="2rem"
+                width="2rem"
+              >
+              </i-bs>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

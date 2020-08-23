@@ -1,0 +1,21 @@
+<div class="container-fluid justify-content-md-center pt-3">
+  <div class="row h-100">
+    <div class="col-md-6 mx-auto">
+      <app-add-item></app-add-item>
+    </div>
+  </div>
+  <div class="row h-100">
+    <div class="col-md-6 mx-auto">
+      <div
+        class="content h-75 p-3 overflow-auto shadow-sm justify-content-between"
+      >
+        <app-item *ngFor="let item of list" [item]="item"></app-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noItems>
+  <hr />
+  <h5>There are no items to list</h5>
+</ng-template>
